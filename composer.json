@@ -1,6 +1,7 @@
 {
     "name": "agregalel/router-php",
     "description": "fast router for your projects",
+    "keywords": ["routing", "router", "URL", "URI", "PHP"],
     "type": "library",
     "license": "MIT",
     "authors": [
