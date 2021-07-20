@@ -10,6 +10,8 @@ Getting Started
 $ composer require agregalel/router-php
 ```
 
+### router.php file
+
 ```php
 use agregalel\router_php\Route;
 use controllers\TestController;
@@ -31,4 +33,8 @@ Route::get('404', [new TestController(), 'error']);
  * Init Router
  */
 Route::initRouter();
+```
+
+```
+php -S 127.0.0.1:8000 ./router.php
 ```
