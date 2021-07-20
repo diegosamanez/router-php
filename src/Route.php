@@ -116,6 +116,13 @@ class Route {
         $controller = $route[0];
         $method = trim($route[1]);
 
-        $controller->$method($_POST);
+        if(count($_FILES) === 0 && count($_POST) > 0){
+            $controller->$method($_POST);
+        }
+        else if(count($_POST) === 0 && count($_FILES) > 0){
+            $controller->$method($_FILES);
+        }else{
+            $controller->$method($_POST, $_FILES);
+        }
     }
 }

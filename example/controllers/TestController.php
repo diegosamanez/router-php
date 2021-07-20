@@ -16,7 +16,7 @@ class TestController
         include __DIR__ . "/../views/form_example.php";
     }
 
-    public function postExample($request){
+    public function postExample($request, $file){
         include __DIR__ . "/../views/post_example.php";
     }
 

@@ -9,6 +9,7 @@
 <body>
     <form action="/post_example" method="post">
         <input type="text" name="name" placeholder="What is your name?">
+        <input type="file" name="file" id="file">
         <input type="submit" value="Enter">
     </form>
     
