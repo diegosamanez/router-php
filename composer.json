@@ -1,0 +1,19 @@
+{
+    "name": "agregalel/router-php",
+    "description": "fast router for your projects",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "diego samanez",
+            "email": "dmsamanez@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "agregalel\\router_php\\" : "src/"
+        }
+    }
+}
