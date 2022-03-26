@@ -7,7 +7,7 @@ Getting Started
 ---------------
 
 ```
-$ composer require agregalel/router-php
+$ composer require agregalel/router-php:dev-main
 ```
 
 ### router.php file
