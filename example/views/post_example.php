@@ -7,6 +7,6 @@
     <title>Post Example</title>
 </head>
 <body>
-    <h1>Your name is <?= $request['name']; ?> </h1>
+    <h1>Your name is <?= $request->getPost()->name ?> </h1>
 </body>
 </html>
