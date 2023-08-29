@@ -1,6 +1,7 @@
 <?php
 namespace agregalel\router_php;
 
+use agregalel\router_php\Request\Request;
 use ReflectionMethod;
 
 class Route {
@@ -33,7 +34,12 @@ class Route {
     }
 
     public function proccessRequest(string $str_uri, $routes){
-        $uri = explode("/", $str_uri);
+        if (str_contains($str_uri, "?")) {
+            $uri = explode("/", explode('?', $str_uri)[0]);
+        } else {
+            $uri = explode("/", $str_uri);
+        }
+        
 
         $equal_url = false;
         $param_exists = [];
@@ -78,11 +84,11 @@ class Route {
             }
         }
 
-        if(!$equal_url){
-            header("Location: /404");
+        // if(!$equal_url){
+        //     header("Location: /404");
 
-            echo "404 Not Found";
-        }
+        //     echo "404 Not Found";
+        // }
     }
 
     private function getParam(string $param) {
@@ -102,6 +108,10 @@ class Route {
         $result = array();
 
         foreach ($reflection->getParameters() as $parameter ){
+            if($parameter->getType()->getName() === "agregalel\\router_php\\Request\\Request"){
+                array_push($result, new Request());
+                continue;
+            }
             foreach ($param as $key => $nameParam){
                 if($parameter->name === $nameParam){
                     array_push($result, $value_param[$key]);
@@ -116,13 +126,6 @@ class Route {
         $controller = $route[0];
         $method = trim($route[1]);
 
-        if(count($_FILES) === 0 && count($_POST) > 0){
-            $controller->$method($_POST);
-        }
-        else if(count($_POST) === 0 && count($_FILES) > 0){
-            $controller->$method($_FILES);
-        }else{
-            $controller->$method($_POST, $_FILES);
-        }
+        $controller->$method(new Request());
     }
 }
