@@ -2,6 +2,8 @@
 
 namespace controllers;
 
+use agregalel\router_php\Request\Request;
+
 class TestController
 {
     public function index(){
@@ -16,7 +18,7 @@ class TestController
         include __DIR__ . "/../views/form_example.php";
     }
 
-    public function postExample($request, $file){
+    public function postExample(Request $request){
         include __DIR__ . "/../views/post_example.php";
     }
 
